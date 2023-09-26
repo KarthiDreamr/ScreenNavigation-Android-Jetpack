@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Divider
@@ -46,14 +48,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting()
-
                 }
-
             }
         }
     }
 }
-
 
 @Composable
 fun Greeting() {
@@ -84,10 +83,9 @@ fun PageBuilder(
     navController: NavController,
     pageName: String
 ) {
-
+    val isFirstScreen = pageName=="First Screen"
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
-
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -97,14 +95,14 @@ fun PageBuilder(
                 Divider()
                 NavigationDrawerItem(
                     label = { Text(text = "First Screen") },
-                    selected = false,
+                    selected = isFirstScreen,
                     onClick = {
                         navController.navigate("first_screen")
                     }
                 )
                 NavigationDrawerItem(
                     label = { Text(text = "Second Screen") },
-                    selected = false,
+                    selected = !isFirstScreen,
                     onClick = {
                         navController.navigate("second_screen")
                     }
@@ -129,6 +127,7 @@ fun PageBuilder(
                                     contentDescription = null
                                 )
                             }
+                            Spacer(modifier = Modifier.size(40.dp))
                             Text(
                                 "Screen Navigator", modifier = Modifier.padding(
                                     8.dp
