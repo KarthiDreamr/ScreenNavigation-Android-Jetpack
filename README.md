@@ -20,7 +20,7 @@ Welcome to the repository for the ScreenNavigation Android application built usi
 
 ## Screenshots 📸
 
-*Coming soon...*
+<img src="assets/screen1.png" width="200"/> <img src="assets/screen2.png" width="200"/> <img src="assets/screen3.png" width="200"/>
 
 ## How to run 🏃‍♂️
 
